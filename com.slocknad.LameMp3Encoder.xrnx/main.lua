@@ -1,19 +1,27 @@
 local vb = renoise.ViewBuilder()
 local dialog_content = nil
 
-local function rendering_done() end
+local function rendering_done() 
+    views.progress_bar.text = "done"
+    iews.progress_bar.width = "done"
+end
 
 local function button_click()
     local views = vb.views
     local title = views.views_path.text .. views.views_title.text
-    renoise.song():render(title, function() rendering_done() end)
-    while (renoise.song().rendering_progress < 1)
+    local flag = renoise.song():render(title, function() rendering_done() end)
+    if (flag) then
+        renoise.app():open_path(views.views_path.text)
+    else
+        renoise.app():show_prompt("error",tostring(flag), {"error"})
+    end
+    --[[while (renoise.song().rendering_progress < 1)
     do
         views.progress_bar.text = tostring(renoise.song().rendering_progress * 100)
         if (renoise.song().rendering_progress * 100 > 0) then
             views.progress_bar.width = tostring(renoise.song().rendering_progress * 100)
         end
-    end
+    end]]--
 end
 
 

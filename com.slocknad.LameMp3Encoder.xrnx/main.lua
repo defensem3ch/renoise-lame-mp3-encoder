@@ -1,3 +1,6 @@
+local function button_click() end
+
+
 local function render()
     local vb = renoise.ViewBuilder()
     local DIALOG_MARGIN = renoise.ViewBuilder.DEFAULT_DIALOG_MARGIN
@@ -151,14 +154,14 @@ local function render()
             spacing = CONTENT_SPACING,
             width = 350,
             vb:button {
-                text = "Render as MP3"
+                text = "Render as MP3",
+                notifier = function() button_click() end
             },
             vb:column {
                 style = "plain",
                 vb:text {
                     text = "0%",
                     width = 1
-                    notifier = function() button_click() end
                 }
             }
         }
@@ -166,7 +169,6 @@ local function render()
 
     renoise.app():show_custom_dialog(dialog_title,dialog_content)
 end
-
 
 renoise.tool():add_menu_entry {
     name = "Main Menu:File:Render Song As MP3",

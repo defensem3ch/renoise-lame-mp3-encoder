@@ -82,7 +82,6 @@ local function render()
                     width = 300,
                     value = 2,
                     items = {"Low (render in background)", "High (as fast as possible)"},
-                    notifier = function(value) rnd_options_priority(value) end
                 }
             },
             vb:row{

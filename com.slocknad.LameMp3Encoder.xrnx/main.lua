@@ -8,10 +8,13 @@ local init_file = nil
 
 
 local function get_options()
-    sample_rate_value = views.sample_rate.value
     -- switch function found in http://lua-users.org/wiki/SwitchStatement
-    switch = function(cases,arg)
-        return assert (loadstring ('return ' .. cases[arg]))()
+    local switch = function(cases,arg)
+        if (tostring(cases[arg]) == cases[arg]) then
+            return assert (loadstring ('return "' .. cases[arg] .. '"'))()
+        else
+            return assert (loadstring ('return ' .. cases[arg]))()
+        end
     end
       
     --sample rate
@@ -42,10 +45,10 @@ local function get_options()
 
     --priority
     local priority = nil
-    if (view.render_mode.value == 1) then
+    if (views.render_mode.value == 1) then
         priority = "realtime"
     else
-        case = view.priority.value
+        case = views.priority.value
         local priority = switch({
             [1] = "low",
             [2] = "high"
@@ -89,7 +92,7 @@ local function render_button_click()
         if (string.match(views.views_title.text, ".+.mp3")) then
             views.views_title.text = string.match(views.views_title.text, "(.+).mp3")
         end
-        options = get_options()
+        local options = get_options()
         local title = views.views_path.text .. views.views_title.text
         local flag = renoise.song():render(options, title, function() rendering_done() end)
         views.progress_bar.text = "Rendering..."
@@ -193,10 +196,10 @@ local function render()
                 },
                 vb:row {
                     vb:switch {
-                        id = "render_mode"
+                        id = "render_mode",
                         width = 200,
                         items = {"Real Time", "Offline"},
-                        value = 2
+                        value = 2,
                         notifier = function() render_mode_click() end
                     }
                 }
@@ -220,7 +223,7 @@ local function render()
                         text = "Priority"
                     },
                     vb:popup {
-                        id = "priority"
+                        id = "priority",
                         height = 20,
                         width = 200,
                         value = 2,
@@ -234,7 +237,7 @@ local function render()
                         text = "Interpolation"
                     },
                     vb:popup {
-                        id = "interpolation"
+                        id = "interpolation",
                         height = 20,
                         width = 200,
                         value = 2,
@@ -248,7 +251,7 @@ local function render()
                         text = "Sample Rate"
                     },
                     vb:popup {
-                        id = "sample_rate"
+                        id = "sample_rate",
                         height = 20,
                         width = 200,
                         value = 3,
@@ -262,7 +265,7 @@ local function render()
                         text = "Bit depth"
                     },
                     vb:popup {
-                        id = "bit_depth"
+                        id = "bit_depth",
                         height = 20,
                         width = 200,
                         value = 2,

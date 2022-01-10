@@ -4,7 +4,7 @@
   <Id>com.slocknad.LameMp3Encoder</Id>
   <Version>1.0</Version>
   <Author>slocknad</Author>
-  <Name>Lame MP3 Encoder</Name>
+  <Name>LAME MP3 Encoder</Name>
   <Category>Addon</Category>
-  <Description>Tool that exports your project as an mp3.</Description>
+  <Description>Tool that exports your project as an mp3 using LAME.</Description>
 </RenoiseScriptingTool>

@@ -194,7 +194,8 @@ local function render()
                         text = "Render Mode"
                     }
                 },
-                vb:row {
+                vb:horizontal_aligner {
+                    mode = "center",
                     vb:switch {
                         id = "render_mode",
                         width = 200,
@@ -268,7 +269,7 @@ local function render()
                         id = "bit_depth",
                         height = 20,
                         width = 200,
-                        value = 2,
+                        value = 1,
                         items = {"16 Bit","24 Bit","32 Bit"},
                     }
                 }

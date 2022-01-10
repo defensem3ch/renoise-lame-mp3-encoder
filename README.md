@@ -8,7 +8,7 @@ To use it, you can simply download [com.slocknad.LameMp3Encoder.xrnx](com.slockn
 ## Dependencies
 
 ### Lame
- In case you're using Windows, I included the .exe file you need to use LAME, so you don't need to install anything
+ In case you're using Windows you don't need to install anything because I included the .exe file you need.
  
  Otherwise:
 https://lame.sourceforge.io/

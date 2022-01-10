@@ -1,6 +1,9 @@
 # Renoise LAME MP3 Encorder
 
-Renoise tool to render a project to MP3 using LAME. Comes with a GUI similar to the default Renoise rendering tool
+Renoise tool to render a project to MP3 using LAME. Comes with a GUI similar to the default Renoise rendering tool.
+
+To use it, you can simply download [com.slocknad.LameMp3Encoder.xrnx]()
+
 
 ## Dependencies
 

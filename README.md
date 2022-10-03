@@ -1,4 +1,4 @@
-# Renoise LAME MP3 Encorder
+# Renoise LAME MP3 Encoder
 
 Renoise tool to render a project to MP3 using LAME. Comes with a GUI similar to the default Renoise rendering tool.
 
